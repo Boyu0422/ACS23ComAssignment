@@ -1,5 +1,0 @@
-// Bust Example 1:
-fn main(){
-     print!("Hello World!");
-}
-
