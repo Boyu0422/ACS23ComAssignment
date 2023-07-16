@@ -120,48 +120,48 @@ enum READER_MODE {
 
 /* Offset declaration */
 typedef struct offset {
-	bust_intg mark;			/* the offset to the mark position (in chars) */
-	bust_intg read;			/* the offset to the get a char position (in chars) */
-	bust_intg wrte;			/* the offset to the add chars (in chars) */
+	i64 mark;			/* the offset to the mark position (in chars) */
+	i64 read;			/* the offset to the get a char position (in chars) */
+	i64 wrte;			/* the offset to the add chars (in chars) */
 } Offset;
 
 /* Buffer structure */
 typedef struct bufferReader {
-	bust_string	content;			/* pointer to the beginning of character array (character buffer) */
-	bust_intg	size;				/* current dynamic memory size (in bytes) allocated to character buffer */
-	bust_intg	increment;			/* character array increment factor */
-	bust_intg	mode;				/* operational mode indicator */
+	String	content;			/* pointer to the beginning of character array (character buffer) */
+	i64	size;				/* current dynamic memory size (in bytes) allocated to character buffer */
+	i64	increment;			/* character array increment factor */
+	i64	mode;				/* operational mode indicator */
 	bust_byte	flags;				/* contains character array reallocation flag and end-of-buffer flag */
 	Offset		offset;				/* Offset / position field */
-	bust_intg	histogram[NCHAR];	/* Statistics of chars */
-	bust_intg	numReaderErrors;	/* Number of errors from Reader */
+	i64	histogram[NCHAR];	/* Statistics of chars */
+	i64	numReaderErrors;	/* Number of errors from Reader */
 } BufferReader, * ReaderPointer;
 
 /* FUNCTIONS DECLARATION:  .................................. */
 /* General Operations */
-ReaderPointer	readerCreate		(bust_intg, bust_intg, bust_intg);
-ReaderPointer	readerAddChar		(ReaderPointer const, bust_char);
-bust_boln		readerClear		    (ReaderPointer const);
-bust_boln		readerFree		    (ReaderPointer const);
-bust_boln		readerIsFull		(ReaderPointer const);
-bust_boln		readerIsEmpty		(ReaderPointer const);
-bust_boln		readerSetMark		(ReaderPointer const, bust_intg);
-bust_intg		readerPrint		    (ReaderPointer const);
-bust_intg		readerLoad			(ReaderPointer const, FILE* const);
-bust_boln		readerRecover		(ReaderPointer const);
-bust_boln		readerRetract		(ReaderPointer const);
-bust_boln		readerRestore		(ReaderPointer const);
+ReaderPointer	readerCreate		(i64, i64, i64);
+ReaderPointer	readerAddChar		(ReaderPointer const, char);
+bool		readerClear		    (ReaderPointer const);
+bool		readerFree		    (ReaderPointer const);
+bool		readerIsFull		(ReaderPointer const);
+bool		readerIsEmpty		(ReaderPointer const);
+bool		readerSetMark		(ReaderPointer const, i64);
+i64		readerPrint		    (ReaderPointer const);
+i64		readerLoad			(ReaderPointer const, FILE* const);
+bool		readerRecover		(ReaderPointer const);
+bool		readerRetract		(ReaderPointer const);
+bool		readerRestore		(ReaderPointer const);
 /* Getters */
-bust_char		readerGetChar		(ReaderPointer const);
-bust_string		readerGetContent	(ReaderPointer const, bust_intg);
-bust_intg		readerGetPosRead	(ReaderPointer const);
-bust_intg		readerGetPosWrte	(ReaderPointer const);
-bust_intg		readerGetPosMark	(ReaderPointer const);
-bust_intg		readerGetSize		(ReaderPointer const);
-bust_intg		readerGetInc		(ReaderPointer const);
-bust_intg		readerGetMode		(ReaderPointer const);
+char		readerGetChar		(ReaderPointer const);
+String		readerGetContent	(ReaderPointer const, i64);
+i64		readerGetPosRead	(ReaderPointer const);
+i64		readerGetPosWrte	(ReaderPointer const);
+i64		readerGetPosMark	(ReaderPointer const);
+i64		readerGetSize		(ReaderPointer const);
+i64		readerGetInc		(ReaderPointer const);
+i64		readerGetMode		(ReaderPointer const);
 bust_byte		readerGetFlags		(ReaderPointer const);
 bust_void		readerPrintStat		(ReaderPointer const);
-bust_intg		readerNumErrors		(ReaderPointer const);
+i64		readerNumErrors		(ReaderPointer const);
 
 #endif

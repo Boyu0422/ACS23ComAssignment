@@ -1,0 +1,9 @@
+//Bust Example 4:
+//The program is lexically correct about the SOFIA city 
+fn main(){
+	let i64 FoundationYear = -7000;
+	let f64 Area = 492.0;
+	let f64 HDI = 0.871;
+	let String CountryName = "Bulgary"
+	print(CountryName);
+}

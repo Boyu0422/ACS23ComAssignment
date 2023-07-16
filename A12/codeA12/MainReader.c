@@ -95,11 +95,11 @@
  *  Function declarations
  * -------------------------------------------------------------
  */
-bust_void bErrorPrint(bust_string fmt, ...);
+bust_void bErrorPrint(String fmt, ...);
 bust_void displayBuffer(BufferReader* ptr_Buffer);
-bust_long getFileSize(bust_string fname);
-bust_intg isNumber(const bust_string ns);
-bust_void startReader(bust_string, bust_string, bust_char, bust_intg, bust_intg);
+bust_long getFileSize(String fname);
+i64 isNumber(const String ns);
+bust_void startReader(String, String, char, i64, i64);
 
 /*
 ************************************************************
@@ -111,13 +111,13 @@ bust_void startReader(bust_string, bust_string, bust_char, bust_intg, bust_intg)
 ************************************************************
 */
 
-bust_intg mainReader(bust_intg argc, bust_string* argv) {
+i64 mainReader(i64 argc, String* argv) {
 
 	/* Create source input buffer */
-	bust_string program = argv[0];
-	bust_string input = argv[2];
-	bust_char mode = MODE_FIXED;
-	bust_intg size = 0, increment = 0, wrongNumber = 0;
+	String program = argv[0];
+	String input = argv[2];
+	char mode = MODE_FIXED;
+	i64 size = 0, increment = 0, wrongNumber = 0;
 
 	/* Missing file name or/and mode parameter */
 	if (argc <= 2) {
@@ -169,12 +169,12 @@ bust_intg mainReader(bust_intg argc, bust_string* argv) {
 *	- Increment: buffer increment.
 ************************************************************
 */
-bust_void startReader(bust_string program, bust_string input, bust_char mode, bust_intg size, bust_intg increment) {
+bust_void startReader(String program, String input, char mode, i64 size, i64 increment) {
 
 	ReaderPointer bufferp;		/* pointer to Buffer structure */
 	FILE* fileHandler;			/* input file handle */
-	bust_intg loadSize = 0;		/* the size of the file loaded in the buffer */
-	bust_char symbol;			/* symbol read from input file */
+	i64 loadSize = 0;		/* the size of the file loaded in the buffer */
+	char symbol;			/* symbol read from input file */
 
 	/* Create buffer */
 	bufferp = readerCreate(size, (char)increment, mode);
@@ -232,7 +232,7 @@ bust_void startReader(bust_string program, bust_string input, bust_char mode, bu
 ************************************************************
 */
 
-bust_void bErrorPrint(bust_string fmt, ...) {
+bust_void bErrorPrint(String fmt, ...) {
 	/* Initialize variable list */
 	va_list ap;
 	va_start(ap, fmt);
@@ -253,7 +253,7 @@ bust_void bErrorPrint(bust_string fmt, ...) {
 ************************************************************
 */
 
-bust_long getFileSize(bust_string fname) {
+bust_long getFileSize(String fname) {
 	FILE* input;
 	bust_long flength;
 	input = fopen(fname, "r");
@@ -277,8 +277,8 @@ bust_long getFileSize(bust_string fname) {
 ************************************************************
 */
 
-bust_intg isNumber(const bust_string ns) {
-	bust_char c; bust_intg i = 0;
+i64 isNumber(const String ns) {
+	char c; i64 i = 0;
 	if (ns == NULL) return 0;
 	while ((c = ns[i++]) == 0) {
 		if (!isdigit(c)) return 0;

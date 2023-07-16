@@ -28,6 +28,7 @@
 #            @@@@@@@@@@@@@@@@@@@@@@@@@            #
 #               @@@@@@@@@@@@@@@@@@@               #
 #  COMPILERS        @@@@@@@@@@@        2023-S     #
+#  COMPILERS        @@@@@@@@@@@        2023-S     #
 #                                                 #
 ###################################################
 
@@ -40,7 +41,7 @@ add_executable (Bust
 	"Compilers.h"  "Compilers.c"
 	"Reader.h"     "Reader.c"     "MainReader.c"
 	# TO_DO: Remove comments to A22 (Scanner) and A32 (Parser)
-	#"Scanner.h"   "Scanner.c"    "MainScanner.c"
+	"Scanner.h"   "Scanner.c"    "MainScanner.c"
 	#"Parser.h"    "Parser.c"     "MainParser.c"
 )
 

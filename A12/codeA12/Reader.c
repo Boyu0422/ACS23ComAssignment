@@ -85,7 +85,7 @@
 *************************************************************
 */
 
-ReaderPointer readerCreate(bust_intg size, bust_intg increment, bust_intg mode) {
+ReaderPointer readerCreate(i64 size, i64 increment, i64 mode) {
 	ReaderPointer readerPointer;
 	/* TO_DO: Defensive programming */
 	if (size < 0 || size > READER_DEFAULT_SIZE || increment < 0)
@@ -105,7 +105,7 @@ ReaderPointer readerCreate(bust_intg size, bust_intg increment, bust_intg mode) 
 	if (!readerPointer) {
 		return NULL;
 	}
-	readerPointer->content = (bust_string)malloc(size);
+	readerPointer->content = (String)malloc(size);
 	/* TO_DO: Defensive programming */
 	if (!readerPointer->content) {
 		return NULL;
@@ -141,9 +141,9 @@ ReaderPointer readerCreate(bust_intg size, bust_intg increment, bust_intg mode) 
 *************************************************************
 */
 
-ReaderPointer readerAddChar(ReaderPointer const readerPointer, bust_char ch) {
-	bust_string tempReader = NULL;
-	bust_intg newSize = 0;
+ReaderPointer readerAddChar(ReaderPointer const readerPointer, char ch) {
+	String tempReader = NULL;
+	i64 newSize = 0;
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return 0;
@@ -156,7 +156,7 @@ ReaderPointer readerAddChar(ReaderPointer const readerPointer, bust_char ch) {
 	/* TO_DO: Reset Realocation */
 	readerPointer->flags &= RESET_BIT1;
 	/* TO_DO: Test the inclusion of chars */
-	if (readerPointer->offset.wrte * (bust_intg)sizeof(bust_char) < readerPointer->size) {
+	if (readerPointer->offset.wrte * (i64)sizeof(char) < readerPointer->size) {
 		/* TO_DO: This buffer is NOT full */
 	} else {
 		/* TO_DO: Reset Full flag */
@@ -217,7 +217,7 @@ ReaderPointer readerAddChar(ReaderPointer const readerPointer, bust_char ch) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_boln readerClear(ReaderPointer const readerPointer) {
+bool readerClear(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return BUST_FALSE;
@@ -244,7 +244,7 @@ bust_boln readerClear(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_boln readerFree(ReaderPointer const readerPointer) {
+bool readerFree(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return BUST_FALSE;
@@ -269,7 +269,7 @@ bust_boln readerFree(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_boln readerIsFull(ReaderPointer const readerPointer) {
+bool readerIsFull(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return BUST_FALSE;
@@ -296,7 +296,7 @@ bust_boln readerIsFull(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_boln readerIsEmpty(ReaderPointer const readerPointer) {
+bool readerIsEmpty(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return BUST_FALSE;
@@ -323,7 +323,7 @@ bust_boln readerIsEmpty(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_boln readerSetMark(ReaderPointer const readerPointer, bust_intg mark) {
+bool readerSetMark(ReaderPointer const readerPointer, i64 mark) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer || mark < 0 || mark > readerPointer->offset.wrte) {
 		return BUST_FALSE;
@@ -347,9 +347,9 @@ bust_boln readerSetMark(ReaderPointer const readerPointer, bust_intg mark) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_intg readerPrint(ReaderPointer const readerPointer) {
-	bust_intg cont = 0;
-	bust_char c;
+i64 readerPrint(ReaderPointer const readerPointer) {
+	i64 cont = 0;
+	char c;
 	/* TO_DO: Defensive programming (including invalid chars) */
 	if (!readerPointer) {
 		return READER_ERROR;
@@ -385,14 +385,14 @@ bust_intg readerPrint(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_intg readerLoad(ReaderPointer const readerPointer, FILE* const fileDescriptor) {
-	bust_intg size = 0;
-	bust_char c;
+i64 readerLoad(ReaderPointer const readerPointer, FILE* const fileDescriptor) {
+	i64 size = 0;
+	char c;
 	/* TO_DO: Defensive programming */
 	if (!readerPointer || !fileDescriptor) {
 		return READER_ERROR;
 	}
-	c = (bust_char)fgetc(fileDescriptor);
+	c = (char)fgetc(fileDescriptor);
 	while (!feof(fileDescriptor)) {
 		if (!readerAddChar(readerPointer, c)) {
 			ungetc(c, fileDescriptor);
@@ -423,7 +423,7 @@ bust_intg readerLoad(ReaderPointer const readerPointer, FILE* const fileDescript
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_boln readerRecover(ReaderPointer const readerPointer) {
+bool readerRecover(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return BUST_FALSE;
@@ -449,7 +449,7 @@ bust_boln readerRecover(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_boln readerRetract(ReaderPointer const readerPointer) {
+bool readerRetract(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer || readerPointer->offset.read <= 0) {
 		return BUST_FALSE;
@@ -474,7 +474,7 @@ bust_boln readerRetract(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_boln readerRestore(ReaderPointer const readerPointer) {
+bool readerRestore(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return BUST_FALSE;
@@ -499,7 +499,7 @@ bust_boln readerRestore(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_char readerGetChar(ReaderPointer const readerPointer) {
+char readerGetChar(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return READER_ERROR;
@@ -530,7 +530,7 @@ bust_char readerGetChar(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_string readerGetContent(ReaderPointer const readerPointer, bust_intg pos) {
+String readerGetContent(ReaderPointer const readerPointer, i64 pos) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return NULL;
@@ -558,7 +558,7 @@ bust_string readerGetContent(ReaderPointer const readerPointer, bust_intg pos) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_intg readerGetPosRead(ReaderPointer const readerPointer) {
+i64 readerGetPosRead(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return READER_ERROR;
@@ -582,7 +582,7 @@ bust_intg readerGetPosRead(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_intg readerGetPosWrte(ReaderPointer const readerPointer) {
+i64 readerGetPosWrte(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return READER_ERROR;
@@ -606,7 +606,7 @@ bust_intg readerGetPosWrte(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_intg readerGetPosMark(ReaderPointer const readerPointer) {
+i64 readerGetPosMark(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return READER_ERROR;
@@ -630,7 +630,7 @@ bust_intg readerGetPosMark(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_intg readerGetSize(ReaderPointer const readerPointer) {
+i64 readerGetSize(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return READER_ERROR;
@@ -653,7 +653,7 @@ bust_intg readerGetSize(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_intg readerGetInc(ReaderPointer const readerPointer) {
+i64 readerGetInc(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return READER_ERROR;
@@ -676,7 +676,7 @@ bust_intg readerGetInc(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_intg readerGetMode(ReaderPointer const readerPointer) {
+i64 readerGetMode(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return READER_ERROR;
@@ -751,7 +751,7 @@ bust_void readerPrintStat(ReaderPointer const readerPointer) {
 *	- Adjust for your LANGUAGE.
 *************************************************************
 */
-bust_intg readerNumErrors(ReaderPointer const readerPointer) {
+i64 readerNumErrors(ReaderPointer const readerPointer) {
 	/* TO_DO: Defensive programming */
 	if (!readerPointer) {
 		return READER_ERROR;

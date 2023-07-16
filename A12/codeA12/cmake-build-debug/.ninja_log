@@ -1,0 +1,5 @@
+# ninja log v5
+7	183	7111443952686881	CMakeFiles/Bust.dir/Compilers.c.obj	3374ceccf3f1e3a1
+1	183	7111443952686881	CMakeFiles/Bust.dir/MainReader.c.obj	8dcc2a946f9de811
+15	186	7111443952716960	CMakeFiles/Bust.dir/Reader.c.obj	7ccf1a3fa275732a
+186	367	7111443954514843	Bust.exe	672f019736c05bf9

@@ -80,13 +80,12 @@ NOTE: Some types may not be directly used by your language,
 */
 
 /* TO_DO: Define your typedefs */
-typedef char			bust_char;
-typedef char*			bust_string;
-typedef int				bust_intg;
-typedef float			bust_real;
+typedef char*			String;
+typedef int				i64;
+typedef float			f64;
 typedef void			bust_void;
 
-typedef unsigned char	bust_boln;
+typedef unsigned char	bool;
 typedef unsigned char	bust_byte;
 
 typedef long			bust_long;
@@ -112,10 +111,10 @@ Main functions signatures
 (Code will be updated during next assignments)
 ------------------------------------------------------------
 */
-bust_intg mainReader(bust_intg argc, bust_string* argv);
+i64 mainReader(i64 argc, String* argv);
 /* TO_DO: Remove comment for next assignmens: Scanner: A22 and Parser: A32
-bust_intg mainScanner(bust_intg argc, bust_string* argv);
-bust_intg mainParser(bust_intg argc, bust_string* argv);
+i64 mainScanner(i64 argc, String* argv);
+i64 mainParser(i64 argc, String* argv);
 */
 bust_void printLogo();
 

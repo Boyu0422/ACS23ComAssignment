@@ -79,9 +79,9 @@
 *************************************************************
 */
 
-bust_intg main(int argc, char** argv) {
-	bust_intg i;
-	bust_char option;
+i64 main(int argc, char** argv) {
+	i64 i;
+	char option;
 	printLogo();
 	if (DEBUG) {
 		for (i = 0; i < argc; ++i)

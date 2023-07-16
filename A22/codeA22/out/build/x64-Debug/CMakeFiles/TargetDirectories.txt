@@ -1,0 +1,3 @@
+C:/Users/15179/Downloads/A22/codeA22/out/build/x64-Debug/CMakeFiles/Bust.dir
+C:/Users/15179/Downloads/A22/codeA22/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/15179/Downloads/A22/codeA22/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
