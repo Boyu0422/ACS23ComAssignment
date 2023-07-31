@@ -1,13 +1,7 @@
 # ninja log v5
-25	102	7112305847532804	CMakeFiles/Bust.dir/Debug/Compilers.c.obj	ec46cf415f62ad4e
-29	104	7112305847532804	CMakeFiles/Bust.dir/Debug/Reader.c.obj	ebf37836fccfc328
-41	105	7112305847532804	CMakeFiles/Bust.dir/Debug/Scanner.c.obj	b34d3364f86f849e
-45	105	7112305847532804	CMakeFiles/Bust.dir/Debug/MainScanner.c.obj	269e4c26b070375e
-39	105	7112305847532804	CMakeFiles/Bust.dir/Debug/MainReader.c.obj	c176ca83b71e7026
-105	365	7112305850035935	Debug/Bust.exe	cbcddfcef2b42111
-32	357	7112372527568834	CMakeFiles/Bust.dir/Debug/MainScanner.c.obj	269e4c26b070375e
-27	361	7112372527618916	CMakeFiles/Bust.dir/Debug/Scanner.c.obj	b34d3364f86f849e
-361	525	7112372528817733	Debug/Bust.exe	cbcddfcef2b42111
-30	484	7112402214845560	CMakeFiles/Bust.dir/Debug/MainScanner.c.obj	269e4c26b070375e
-23	489	7112402214930622	CMakeFiles/Bust.dir/Debug/Scanner.c.obj	b34d3364f86f849e
-489	597	7112402215732489	Debug/Bust.exe	cbcddfcef2b42111
+2	64	7115573028891099	CMakeFiles/Bust.dir/Compilers.c.obj	ba9c32b8e2b2f555
+11	69	7115573028901093	CMakeFiles/Bust.dir/MainReader.c.obj	cc227fc4208ebb55
+8	69	7115573028891099	CMakeFiles/Bust.dir/Reader.c.obj	b8224c0886350ee1
+17	72	7115573028951094	CMakeFiles/Bust.dir/MainScanner.c.obj	60c4f5a4e155a0b0
+14	73	7115573028961093	CMakeFiles/Bust.dir/Scanner.c.obj	590e9117a7249125
+74	323	7115573031341092	Bust.exe	9841d4d36520152c

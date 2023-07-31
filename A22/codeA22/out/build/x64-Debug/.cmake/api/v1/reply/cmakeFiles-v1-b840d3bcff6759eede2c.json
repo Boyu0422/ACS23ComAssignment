@@ -21,11 +21,6 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.26/Modules/CMakeNinjaFindMake.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
 			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake"
 		},
 		{
@@ -762,8 +757,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "C:/Users/15179/Downloads/A22/codeA22/out/build/x64-Debug",
-		"source" : "C:/Users/15179/Downloads/A22/codeA22"
+		"build" : "C:/Course Assignment/Complier/Boyu345/A22/codeA22/out/build/x64-Debug",
+		"source" : "C:/Course Assignment/Complier/Boyu345/A22/codeA22"
 	},
 	"version" : 
 	{
