@@ -1,0 +1,10 @@
+# ninja log v5
+17	22	0	clean:Debug	8da168b13074162d
+7	478	7136037892834573	CMakeFiles/Bust.dir/Debug/Reader.c.obj	f42f1d1a395f18b1
+17	479	7136037892834573	CMakeFiles/Bust.dir/Debug/MainScanner.c.obj	54baeba1e6e43baf
+10	480	7136037892834573	CMakeFiles/Bust.dir/Debug/MainReader.c.obj	628a6062d6305c02
+14	482	7136037892834573	CMakeFiles/Bust.dir/Debug/Scanner.c.obj	6283d6ce13417b23
+23	482	7136037892834573	CMakeFiles/Bust.dir/Debug/MainParser.c.obj	67cb0656d67b5027
+4	483	7136037892834573	CMakeFiles/Bust.dir/Debug/Compilers.c.obj	36c62d650b5de4ca
+20	484	7136037892834573	CMakeFiles/Bust.dir/Debug/Parser.c.obj	75b4ae04aee35c01
+485	769	7136037895660217	Debug/Bust.exe	8d6546bd6315a083
